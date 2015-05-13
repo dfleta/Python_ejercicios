@@ -1,0 +1,18 @@
+{
+	"John": {
+		"horas": 2,
+		"rate": 25
+	},
+	"Paul": {
+		"horas": 2,
+		"rate": 25
+	},
+	"Ringo": {
+		"horas": 2,
+		"rate": 5
+	},
+	"George": {
+		"horas": 2,
+		"rate": 15
+	}
+}

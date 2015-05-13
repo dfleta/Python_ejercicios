@@ -1,0 +1,5 @@
+nombre		horas		rate
+John		2			25
+Paul		2		 	25
+Ringo		2			5
+George		2			15

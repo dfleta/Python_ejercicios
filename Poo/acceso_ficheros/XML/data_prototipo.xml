@@ -1,0 +1,25 @@
+
+<plantilla>
+	<persona>
+		<nombre>"John"</nombre>
+		<horas>2</horas>
+		<rate>25</rate>
+	</persona>
+	<persona>
+		<nombre>"Paul"</nombre>
+		<horas>2</horas>
+		<rate>25</rate>
+	</persona>
+	<persona>
+		<nombre>"Ringo"</nombre>
+		<horas>2</horas>
+		<rate>5</rate>
+	</persona>
+	<persona>
+		<nombre>"George"</nombre>
+		<horas>2</horas>
+		<rate>15</rate>
+	</persona>
+</plantilla>
+
+plantilla>(persona>nombre{"john"}+horas+rate[currency = "euros"])*5
