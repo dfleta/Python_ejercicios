@@ -121,7 +121,7 @@ class Termostato(Sensor):
 		return 10
 
 
-##########################3 main
+########################## casos test fuleros
 
 # chimenea = Calefaccion() => no es posible instanciar clase con metodos abstractos
 
