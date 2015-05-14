@@ -8,7 +8,7 @@ Los ejercicios no están resueltos de la forma más eficiente, sino con los recu
 ## Contenidos
 
  - Problemas propuestos en el estupendo curso de Udacity [Introduction to Computer Science](https://www.udacity.com/course/intro-to-computer-science--cs101) impartido por Dave Evans.
- - Problemas de programación Java (resueltos _by the Python style_) propuestos en la guía docente utilizada en el módulo de programación del IES A Carballeira de Ourense. ¡Gracias a los autores Juanjo y Juan! :)
+ - Problemas de programación Java (resueltos _al estilo Python_) propuestos en la guía docente utilizada en el módulo de programación del IES A Carballeira de Ourense. Gracias a los autores Juanjo y Juan :)
  - Problemas y ejemplos de programación del estupendo libro [Learning Python, 5th Edition](http://shop.oreilly.com/product/0636920028154.do) de Mark Lutz.
  - Ejemplos SOLID propuestos en el libro [Agile Principles, Patterns, and Practices in C#](http://www.objectmentor.com/PPP/) por Robert C. Martin reinterpretados en Python.
  - Directrices y buenas prácticas extraidas del inexcusable libro [Code Complete, Second Edition](http://cc2e.com/) de  Steve McConnell.
