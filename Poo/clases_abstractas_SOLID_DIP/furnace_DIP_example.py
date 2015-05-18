@@ -51,9 +51,6 @@ class SistemaCalefaccion():
 		self.__sensor 		= sensor
 		self.temperaturaObjetivo = None
 
-	def cargarCombustibleCombustible(self, unidades):
-		self.__calefaccion.cargarCombustible(unidades)
-
 	def on(self, temperaturaObjetivo):
 
 		# esta seria la interfaz "Regulate" del ejemplo
@@ -121,7 +118,7 @@ class Termostato(Sensor):
 		return 10
 
 
-########################## casos test fuleros
+##########################3 main
 
 # chimenea = Calefaccion() => no es posible instanciar clase con metodos abstractos
 
@@ -138,7 +135,7 @@ print(termo.leer())
 
 sistema = SistemaCalefaccion(chimenea, termo)
 
-sistema.cargarCombustibleCombustible(4)
+chimenea.cargarCombustible(4)
 sistema.on(24)
 
 
@@ -152,5 +149,5 @@ print(termo.leer())
 
 sistema = SistemaCalefaccion(suelo, termo)
 
-sistema.cargarCombustibleCombustible(6)
+suelo.cargarCombustible(6)
 sistema.on(24)
