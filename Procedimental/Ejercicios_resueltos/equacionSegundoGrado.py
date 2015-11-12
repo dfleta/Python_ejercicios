@@ -1,6 +1,3 @@
-# Autora: Constanza Miro Ferrer
-# constanxa4@gmail.com
-# Licencia: GNU-GPL
 
 # Equacion segundo grado : ax^2 + bx + c = 0
 # x representa la variable 
@@ -14,11 +11,11 @@ def equacionSegundoGrado(a, b, c):
 	import math
 
 
-	argumentoRaizCuadrada = b**2 - 4*a*c
+	discriminante = b**2 - 4*a*c
 	
-	if  a != 0  and  argumentoRaizCuadrada >= 0:
+	if  a != 0  and  discriminante >= 0:
 	
-		resultadoRaizCuadrada = math.sqrt(argumentoRaizCuadrada)
+		resultadoRaizCuadrada = math.sqrt(discriminante)
 	
 		x1 = (-b + resultadoRaizCuadrada) / (2 * a)
 		x2 = (-b - resultadoRaizCuadrada) / (2 * a)
@@ -29,15 +26,69 @@ def equacionSegundoGrado(a, b, c):
 		return None
 
 
-# CASOS TEST
+# casos test
+a = -1
+b = -2
+c = -1
 
-print(equacionSegundoGrado(1, 2, 1))
-# 'x1 = -1.0, x2 = 1.0'
-print(equacionSegundoGrado(4, 3, 1))
-# 'No hay solucion'
-print(equacionSegundoGrado(0, 2, 1))
-# 'El coeficiente cuadratico debe ser distinto de 0'
-print(equacionSegundoGrado(-1, -5, -2))
-# 'x1 = -4.56155281281, x2 = 0.438447187191'
-print(equacionSegundoGrado(-1, -2, -1))
-# 'x1 = -1.0, x2 = 1.0'
+# si a = 0 => no existe solucion real
+a =  0
+b = -2
+c = -1
+if None == equacionSegundoGrado(a, b, c):
+	print("PASS a = 0")
+else:
+	print("FAIL a = 0")
+
+# si b = 0 y -c/a < 0 => no existe solucion real
+a = -1
+b =  0
+c = -1
+if None == equacionSegundoGrado(a, b, c):
+	print("PASS a = 0 AND -c/a < 0")
+else:
+	print("FAIL a = 0 AND -c/a < 0")
+
+# si b = 0 y c = 0 => x1 = x2 = 0
+a = -1
+b =  0
+c =  0
+x1, x2 = equacionSegundoGrado(a, b, c)
+if x1 == 0 and x2 == 0:
+    print("PASS b = 0 y c = 0")
+else:
+	print("FAIL b = 0 y c = 0")
+
+# si c = 0 => x1 = 0 and x2 = -b/a
+a = -1
+b = -2
+c =  0
+desviacion = 0.01
+x1, x2 = equacionSegundoGrado(a, b, c)
+
+if b > 0:
+	raizNula   = x1
+	raizNoNula = x2
+else:
+	raizNula   = x2
+	raizNoNula = x1
+
+if raizNula == 0 and -b/a + desviacion >= raizNoNula >= -b/a - desviacion :  # ejemplo depuracion
+	print("PASS c = 0")
+else:
+	print("FAIL c = 0") 
+
+# los siguientes casos test no son optimos: pocos y no automatizados
+
+casosTest = [((-1, -2, -1), (-1.0, -1.0)),
+             ((-1, -5, -2), (-4.56155281281, -0.438447187191)),
+             ((4, 8, 2), (-0.29, -1.71)),
+             ((7.7, 9.9, 2.2), (-0.29, -1.0))]
+
+desviacion = 0.01
+for casoTest in casosTest:
+	x1, x2 = equacionSegundoGrado(*casoTest[0])
+	if  casoTest[1][0] + desviacion >= x1 >= casoTest[1][0] - desviacion and casoTest[1][1] + desviacion >= x2 >= casoTest[1][1] - desviacion:
+		print("PASS caso test: ", casoTest)
+	else:
+		print("FAIL caso test: ", casoTest)
