@@ -1,7 +1,4 @@
-
 # Equacion segundo grado : ax^2 + bx + c = 0
-# x representa la variable 
-# a, b y c son constantes
 # a es el coeficiente cuadratico (distinto de 0)
 # b el coeficiente lineal 
 # c es el termino independiente
