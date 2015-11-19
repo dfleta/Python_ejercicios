@@ -73,14 +73,5 @@ casosTest = [([0], 0),
 			 ([5, 2, 5, 4, 0], 5),
 			 ([5, 5, 5], 5)]
 
-### caso Test lista vacia
-
-if calcularMayorSerie(testListaVacia[0]) == testListaVacia[1]:
-	# Consultar libro pag. 216 string formatting expressions
-	print("caso %s => %s OK" % (testListaVacia[0], testListaVacia[1]) )
-else:
-	print("caso %s => %s Fallo" % (testListaVacia[0], testListaVacia[1]) )
-
-### resto de casos Test
 
 testUnidad(calcularMayorSerie, casosTest)

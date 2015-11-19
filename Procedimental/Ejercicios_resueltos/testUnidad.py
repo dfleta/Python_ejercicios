@@ -11,14 +11,14 @@ def testUnidad(unidad, casosTest):
 	for casoTest in casosTest:
 		resultado = unidad(casoTest[0])
 		if resultado == casoTest[1]:
-			print("caso %s => %d" % (casoTest[0], resultado), bcolors.OKGREEN + "OK" + bcolors.ENDC) 
+			print("caso %s => %s" % (casoTest[0], str(resultado)), Colors.OKGREEN + "OK" + Colors.ENDC) 
 		else:
 			fail = True
-			print("caso %s => %d" % (casoTest[0], resultado), bcolors.FAIL + "FAIL" + bcolors.ENDC) 
+			print("caso %s => %s" % (casoTest[0], str(resultado)), Colors.FAIL + "FAIL" + Colors.ENDC) 
 
-	if fail == True:
-		print(bcolors.FAIL + "test unidad FAIL" + bcolors.ENDC)
+	if fail:
+		print(Colors.FAIL + "test unidad FAIL" + Colors.ENDC)
 	else:
-		print(bcolors.OKGREEN + "test unidad OK" + bcolors.ENDC)
+		print(Colors.OKGREEN + "test unidad OK" + Colors.ENDC)
 
 	return
