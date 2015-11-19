@@ -64,9 +64,8 @@ else:
 
 print("###### Casos Test calcularMayorSerie ######")
 
-testListaVacia = ([], None)
-
-casosTest = [([0], 0),
+casosTest = [([], None),
+			 ([0], 0),
 			 ([1, 2, 3, 4], 4),
 			 ([-1, -2, 3], 3),
 			 ([1, 2, 3, 4, 5], 5),
