@@ -1,5 +1,5 @@
 
-# Cap 14: Iterations and Comprehensions pag 415
+# Cap 14: Iterations and Comprehensions 
 
 Anytime we start thinking about performing an operation on each item in a sequence,
 we’re in the realm of list comprehensions.
@@ -34,12 +34,12 @@ assigning x to each item in turn, and collects the results of running the items 
 the expression on the left side. The result list we get back is exactly what the list com-
 prehension says—a new list containing x + 10 , for every x in L .
 
-_list comprehensions are more concise to write_, and because this code pattern
+__list comprehensions are more concise to write__, and because this code pattern
 of building up result lists is so common in Python work
 
 depending on your Python and code, *list comprehensions
 might run much faster than manual for loop statements* (often roughly twice as fast)
-because their _iterations are performed at C language speed inside the interpreter_, rather
+because their __iterations are performed at C language speed inside the interpreter__, rather
 than with manual Python code. Especially for larger data sets, there is often a major
 performance advantage to using this expression.
 
@@ -99,7 +99,7 @@ Returns an iterator of tuples, where the i-th tuple contains the i-th element
 from each of the argument sequences or iterables. The iterator stops when 
 the shortest input iterable is exhausted
 
-[https://docs.python.org/3.3/library/functions.html#zip](funcion zip en librería Python)
+[funcion zip en librería Python](https://docs.python.org/3.3/library/functions.html#zip)
 
 ```
 >>> x = [1, 2, 3]
