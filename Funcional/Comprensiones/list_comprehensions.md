@@ -4,7 +4,7 @@
 Anytime we start thinking about performing an operation on each item in a sequence,
 we’re in the realm of list comprehensions.
 
-```
+```Python
 >>> L = [1, 2, 3, 4, 5]
 >>> for i in range(len(L)):
 ... L[i] += 10
