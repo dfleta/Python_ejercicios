@@ -52,7 +52,13 @@ As one particularly useful extension, the `for` loop nested in a comprehension e
 can have an associated `if` clause to filter out of the result items for which the test is not
 true.
 
- - Aqui hacer un ejemplo: crear lista con los valores mayores que 10
+#### Ejemplo: crear lista con los valores mayores que 10 de una lista dada.
+```
+>>> L = [1,7,8,9]
+>>> M = [ x  for x in L if x < 5 ]
+>>> M
+[1]
+```
 
 ### Nested loops: `for`
 List comprehensions can become even more complex if we need them to for instance,
@@ -87,6 +93,13 @@ makes a list from a tuple, adding 20 to each item along the way:
 [21, 22, 23, 24, 25]
 ```
 
+#### Ejemplo: Crea una lista de números del 0 al 9 a partir del iterable range()
+```
+>>> L = [x for x in range(0,9)]
+>>> L
+[0, 1, 2, 3, 4, 5, 6, 7, 8]
+```
+
 ## Dictionary comprehensions in 3.X and 2.7
 
 
@@ -107,6 +120,11 @@ the shortest input iterable is exhausted
 >>> zipped = zip(x, y)
 >>> list(zipped)
 [(1, 4), (2, 5), (3, 6)]
+
+>>> L = [ x for x in range(0,5) ]
+>>> M = [ x for x in range(5,10) ]
+>>> [elemento for elemento in zip(L,M) ]
+[(4, 9), (4, 9), (4, 9), (4, 9), (4, 9)]
 
 >>> list(zip(['a', 'b', 'c'], [1, 2, 3]))		# Zip together keys and values
 [('a', 1), ('b', 2), ('c', 3)] 
