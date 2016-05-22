@@ -14,13 +14,13 @@ generator expressions
 Python’s built-in ord function returns the integer code point of a single character
 (the chr built-in is the converse—it returns the character for an integer code point).
 
-```
+```Python
 >>> ord('s')
 115
 ```
 
 suppose we wish to collect the ASCII codes of all characters in an entire string.
-```
+```Python
 >>> res = []
 >>> for x in 'spam':
 	res.append(ord(x)) 	# Manual results collection
@@ -34,7 +34,7 @@ suppose we wish to collect the ASCII codes of all characters in an entire string
 
 while `map` maps a function over an iterable, __list comprehensions map an expression over a
 sequence or other iterable__:
-```
+```Python
 >>> res = [ord(x) for x in 'spam']		# Apply expression to sequence (or other)
 >>> res
 [115, 112, 97, 109]
@@ -45,7 +45,7 @@ in square brackets—to remind you that they construct lists.
 
 List comprehensions become more convenient, though, when we wish to apply
 an arbitrary expression to an iterable instead of a function:
-```
+```Python
 >>> [x ** 2 for x in range(10)]
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
@@ -53,7 +53,7 @@ To do similar work with a map call, we would probably need to invent a little
 function to implement the square operation. Because we won’t need this function else-
 where, we’d typically (but not necessarily) code it inline, with a `lambda`, instead of using
 a `def` statement elsewhere:
-```
+```Python
 >>> list(map((lambda x: x ** 2), range(10)))
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
@@ -61,7 +61,7 @@ For more advanced kinds of expressions, though, list comprehensions will
 often require considerably less typing.
 
 ### Adding Tests and Nested Loops: `filter`
-```
+```Python
 >>> [x for x in range(5) if x % 2 == 0]
 [0, 2, 4]
 
@@ -77,12 +77,12 @@ often require considerably less typing.
 ```
 However, we can combine an `if` clause and an arbitrary expression in our list comprehension, 
 to give it the effect of a `filter` and a `map`, in a single expression:
-```
+```Python
 >>> [x ** 2 for x in range(10) if x % 2 == 0]
 [0, 4, 16, 36, 64]
 ```
 The equivalent map call would require a lot more work on our part:
-```
+```Python
 >>> list( map((lambda x: x**2), filter((lambda x: x % 2 == 0), range(10))) )
 [0, 4, 16, 36, 64]
 ```
@@ -98,7 +98,7 @@ This same syntax is inherited by set and dictionary comprehensions as well as th
 generator expressions coming up, though these use different enclosing characters (curly
 braces or often-optional parentheses), and the __dictionary comprehension begins with
 two expressions separated by a colon (for key and value)__.
-```
+```Python
 >>> res = [x + y for x in [0, 1, 2] for y in [100, 200, 300]]
 >>> res
 [100, 200, 300, 101, 201, 301, 102, 202, 302]
@@ -112,14 +112,14 @@ two expressions separated by a colon (for key and value)__.
 ```
 Although list comprehensions construct list results, remember that they can iterate over
 any sequence or other iterable type.
-```
+```Python
 >>> [x + y for x in 'spam' for y in 'SPAM']
 ['sS', 'sP', 'sA', 'sM', 'pS', 'pP', 'pA', 'pM',
 'aS', 'aP', 'aA', 'aM', 'mS', 'mP', 'mA', 'mM']
 ```
 Each `for` clause can have an associated `if` filter, no matter how deeply the loops are
 nested
-```
+```Python
 >>> [x + y for x in 'spam' if x in 'sm' for y in 'SPAM' if y in ('P', 'A')]
 ['sP', 'sA', 'mP', 'mA']
 
@@ -145,7 +145,7 @@ nested
 ### Example: List Comprehensions and Matrixes
 
 The following, for example, defines two 3 × 3 matrixes as lists of nested lists:
-```
+```Python
 >>> M = [[1, 2, 3],
 		 [4, 5, 6],
 		 [7, 8, 9]]
@@ -162,7 +162,7 @@ The following, for example, defines two 3 × 3 matrixes as lists of nested lists
 ```
 List comprehensions are powerful tools for processing such structures, though, because
 they automatically scan rows and columns for us.
-```
+```Python
 >>> [ row[1] for row in M ]		# Column 2
 [2, 5, 8] 
 
@@ -182,7 +182,7 @@ Recorrer la diagonal inversa:
 
 Changing such a matrix in place requires assignment to offsets (use range twice if shapes
 differ):
-```
+```Python
 >>> L = [[1, 2, 3], [4, 5, 6]]
 >>> for i in range(len(L)):
 		for j in range(len(L[i])):
@@ -197,7 +197,7 @@ differ):
 [[11, 12, 13], [14, 15, 16], [17, 18, 19]]
 ```
 esta ultima list comprehension es equivalente a:
-```
+```Python
 >>> res = []
 >>> for row in M:
 		tmp = []			# Left-nesting starts new list
@@ -210,7 +210,7 @@ esta ultima list comprehension es equivalente a:
 
 Finally, with a bit of creativity, we can also use list comprehensions to combine values
 of multiple matrixes.
-```
+```Python
 >>> M
 [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
@@ -226,7 +226,7 @@ of multiple matrixes.
 And for more fun, we can use zip to pair items to be multiplied
 (and because zip is a generator of values
 in 3.X, this isn’t as inefficient as it may seem):
-```
+```Python
 [[col1 * col2 for (col1, col2) in zip(row1, row2)] for (row1, row2) in zip(M, N)]
 ```
 
