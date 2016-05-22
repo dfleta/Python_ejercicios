@@ -13,14 +13,14 @@ we’re in the realm of list comprehensions.
 [11, 12, 13, 14, 15]
 ```
 
-```
+```Python
 >>> L = [x + 10 for x in L]
 >>> L
 [21, 22, 23, 24, 25]
 ```
 
 Es lo mismo que:
-```
+```Python
 >>> res = []
 >>> for x in L:
 ... res.append(x + 10)
@@ -53,7 +53,7 @@ can have an associated `if` clause to filter out of the result items for which t
 true.
 
 #### Ejemplo: crear lista con los valores mayores que 10 de una lista dada.
-```
+```Python
 >>> L = [1,7,8,9]
 >>> M = [ x  for x in L if x < 5 ]
 >>> M
@@ -64,14 +64,14 @@ true.
 List comprehensions can become even more complex if we need them to for instance,
 they may contain nested loops, coded as a series of `for` clauses.
 
-```
+```Python
 >>> [x + y for x in 'abc' for y in 'lmn']
 ['al', 'am', 'an', 'bl', 'bm', 'bn', 'cl', 'cm', 'cn']
 ```
 
 Es lo mismo que:
 
-```
+```Python
 >>> res = []
 >>> for x in 'abc':
 	... for y in 'lmn':
@@ -86,7 +86,7 @@ As usual in programming, if something is difficult for you to understand, it’s
 ### Tuples (pag 279)
 List comprehensions can also be used to convert tuples. The following, for example,
 makes a list from a tuple, adding 20 to each item along the way:
-```
+```Python
 >>> T = (1, 2, 3, 4, 5)
 >>> L = [x + 20 for x in T]
 >>> L
@@ -94,7 +94,7 @@ makes a list from a tuple, adding 20 to each item along the way:
 ```
 
 #### Ejemplo: Crea una lista de números del 0 al 9 a partir del iterable range()
-```
+```Python
 >>> L = [x for x in range(0,9)]
 >>> L
 [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -114,7 +114,7 @@ the shortest input iterable is exhausted
 
 [funcion zip en librería Python](https://docs.python.org/3.3/library/functions.html#zip)
 
-```
+```Python
 >>> x = [1, 2, 3]
 >>> y = [4, 5, 6]
 >>> zipped = zip(x, y)
@@ -138,7 +138,7 @@ the shortest input iterable is exhausted
 ```
 
 ### Ejemplo 2:
-```
+```Python
 >>> D = dict.fromkeys(['a', 'b', 'c'], 0)		# Initialize dict from keys
 >>> D
 {'b': 0, 'c': 0, 'a': 0} 
