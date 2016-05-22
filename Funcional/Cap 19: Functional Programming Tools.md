@@ -76,19 +76,20 @@ __filter__ and __reduce__, select an iterable’s items based on a test function
 Because it also returns an iterable, `filter` (like `range` ) requires a list call to display all its results in 3.X.
 
 The following `filter` call picks out items in a sequence that are greater than zero:
-	
-	>>> list(range(−5, 5))
-	[−5, −4, −3, −2, −1, 0, 1, 2, 3, 4] 				# An iterable in 3.X
+```Python
+>>> list(range(−5, 5))
+[−5, −4, −3, −2, −1, 0, 1, 2, 3, 4] 				# An iterable in 3.X
 
-	>>> list(filter((lambda x: x > 0), range(−5, 5)))	# An iterable in 3.X
-	[1, 2, 3, 4] 
+>>> list(filter((lambda x: x > 0), range(−5, 5)))	# An iterable in 3.X
+[1, 2, 3, 4] 
 
-	>>> res = []
-	>>> for x in range(−5, 5):			# The statement equivalent
-		... if x > 0:
-			... res.append(x)
-	>>> res
-	[1, 2, 3, 4]
+>>> res = []
+>>> for x in range(−5, 5):			# The statement equivalent
+	... if x > 0:
+		... res.append(x)
+>>> res
+[1, 2, 3, 4]
+```
 
 Also like `map`, filter can be emulated by __list comprehension__ syntax with often-simpler results (especially when it can avoid creating a new function), and with a similar __generator expression__ when delayed production of results is desired—though we’ll save the rest of this story for the next chapter:
 ```Python
