@@ -1,10 +1,10 @@
-# Equacion segundo grado : ax^2 + bx + c = 0
+# Ecuacion segundo grado : ax^2 + bx + c = 0
 # a es el coeficiente cuadratico (distinto de 0)
 # b el coeficiente lineal
 # c es el termino independiente
 
 
-def equacionSegundoGrado(a, b, c):
+def resolverEcuSegGrad(a, b, c):
 
     import math
 
@@ -32,7 +32,7 @@ c = -1
 a = 0
 b = -2
 c = -1
-if None == equacionSegundoGrado(a, b, c):
+if None == resolverEcuSegGrad(a, b, c):
     print("PASS a = 0")
 else:
     print("FAIL a = 0")
@@ -41,7 +41,7 @@ else:
 a = -1
 b = 0
 c = -1
-if None == equacionSegundoGrado(a, b, c):
+if None == resolverEcuSegGrad(a, b, c):
     print("PASS a = 0 AND -c/a < 0")
 else:
     print("FAIL a = 0 AND -c/a < 0")
@@ -50,7 +50,7 @@ else:
 a = -1
 b = 0
 c = 0
-x1, x2 = equacionSegundoGrado(a, b, c)
+x1, x2 = resolverEcuSegGrad(a, b, c)
 if x1 == 0 and x2 == 0:
     print("PASS b = 0 y c = 0")
 else:
@@ -61,7 +61,7 @@ a = -1
 b = -2
 c = 0
 desviacion = 0.01
-x1, x2 = equacionSegundoGrado(a, b, c)
+x1, x2 = resolverEcuSegGrad(a, b, c)
 
 if b > 0:
     raizNula = x1
@@ -84,7 +84,7 @@ casosTest = [((-1, -2, -1), (-1.0, -1.0)),
 
 desviacion = 0.01
 for casoTest in casosTest:
-    x1, x2 = equacionSegundoGrado(*casoTest[0])
+    x1, x2 = resolverEcuSegGrad(*casoTest[0])
     if casoTest[1][0] + desviacion >= x1 >= casoTest[1][0] - desviacion and casoTest[1][1] + desviacion >= x2 >= casoTest[1][1] - desviacion:
         print("PASS caso test: ", casoTest)
     else:
