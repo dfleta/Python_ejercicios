@@ -5,14 +5,26 @@
 # for each i=0,1,...,n-1 and for each j=0,1,...,n-1.
 
 
+def esMatrizCuadrada(matriz):
+
+    numeroFilas = len(matriz)
+
+    for fila in matriz:
+
+        if len(fila) != numeroFilas:
+            return False
+
+    return True
+
+
 def esAntisimetrica(matriz):
 
     # precondicion: manejo de errores.
     # The public methods assume the data is unsafe,
     # and they are responsible for checking the data (and sanitizing it).
 
-    if len(matriz) != len(matriz[0]):
-        return False
+    #if not esMatrizCuadrada(matriz):
+    #    return False
 
     i = 0
     j = 0
@@ -54,16 +66,55 @@ print(esAntisimetrica([[1, 2, 5],
                        [0, 0, 1]]))
 # >>> False
 
+
 # casos test que no satisfacen la precondicion de que la matriz sea cuadrada:
 
-matriz4 = [[1, 0, 0, 0],
+matriz5 = [[1, 0, 0, 0],
            [0, 1, 1, 0],
            [0, 0, 0, 1]]
 
-print(esAntisimetrica(matriz4))
-# >>>False
-
-matriz5 = [[1, 0, 0, 0, 0, 0, 0, 0, 0]]
-
 print(esAntisimetrica(matriz5))
 # >>>False
+
+matriz6 = [[1, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+print(esAntisimetrica(matriz6))
+# >>>False
+
+matriz7 = [[1, 0, 0, 0],
+           [0, 1, 0],
+           [0, 0, 0, 1]]
+
+print(esAntisimetrica(matriz7))
+# >>>False
+
+
+# casos test matriz cuadrada:
+
+print("casos test matriz cuadrada:")
+
+matriz5 = [[1, 0, 0, 0],
+           [0, 1, 1, 0],
+           [0, 0, 0, 1]]
+
+print(esMatrizCuadrada(matriz5))
+# >>>False
+
+matriz6 = [[1, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+print(esMatrizCuadrada(matriz6))
+# >>>False
+
+matriz7 = [[1, 2, 3, 4],
+           [-2, 1, 5],
+           [-3, -5, 1, 1]]
+
+print(esMatrizCuadrada(matriz7))
+# >>>False
+
+matriz8 = [[0, 0, 0],
+           [0, 0, 0],
+           [0, 0, 0]]
+
+print(esMatrizCuadrada(matriz8))
+# >>> True
