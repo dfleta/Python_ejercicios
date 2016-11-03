@@ -19,4 +19,4 @@ Los ejercicios no están resueltos de la forma más eficiente, sino con los recu
  3. [Agile Principles, Patterns, and Practices in C#.](http://www.objectmentor.com/PPP/)
  4. [Code Complete, Second Edition.](http://cc2e.com/)
  
-Si encuentras errores o deseas hacer sugerencias, ya sabes: commit!
+Si encuentras errores o deseas hacer sugerencias, ya sabes: pull request!
