@@ -34,6 +34,10 @@ correcto = [[1, 2, 3],
             [2, 3, 1],
             [3, 1, 2]]
 
+incorrecto = [[1, 2, 3],
+              [2, 3, 1],
+              [2, 3, 1]]
+
 incorrecto1 = [[1, 2, 3, 4],
                [2, 3, 1, 3],
                [3, 1, 2, 3],
@@ -128,44 +132,58 @@ def checkFilas(sudoku):
 
 def checkColumnas(sudoku):
 
-    primeraFila = sudoku[0]
+    # Precondicion
+    assert isinstance(
+        sudoku, list), "la interfaz exige que sudoku debe ser una lista"
 
-    numeroDeFilas = len(primeraFila) - 1
+    numeroDeFilas = len(sudoku)
 
-    for numero in primeraFila:
+    indexFilaActual = 0
 
-        indexFilaActual = 0
+    for fila in sudoku:
 
-        # Buscamos cada elemento de la primera fila en el resto de filas:
-        # Si el indice que ocupa en las otras filas es igual al que ocupa
-        # en la primera: mal <=> no puede haber dos numeros iguales en la misma columna.
+        for numero in fila:
 
-        while indexFilaActual < numeroDeFilas:
+            # Buscamos cada numero de la fila actual en el resto de filas:
+            # Si el indice que ocupa en las otras filas es igual
+            # al que ocupa en la primera:
+            # mal <=> no puede haber dos numeros iguales en la misma columna.
 
+            # la primera fila donde buscar el numero es la siguiente
             indexFilaSiguiente = indexFilaActual + 1
 
-            try:
-                # El elemento puede no existir en la fila siguiente:
-                # index devuelve excepcion: ValueError = mensaje "x is not in list"
-                # Imposible alcanzar esta excepcion si checkColumnas se ejecuta
-                # despues de checkFilas
-                posicionNumeroFilaSiguiente = sudoku[indexFilaSiguiente].index(numero)
+            while indexFilaSiguiente < numeroDeFilas:
 
-            except ValueError:
-                # Este bloque de codigo se ejecuta si sudoku[indexFilaSiguiente].index(numero)
-                # devuelve un error <=> si el numero no esta en la fila
-                # ValueError: numero is not in list
-                return False
+                try:
+                    # El elemento puede no existir en la fila siguiente:
+                    # index devuelve excepcion: ValueError = mensaje "x is not in list"
+                    # Imposible alcanzar esta excepcion si checkColumnas se ejecuta
+                    # despues de checkFilas
+                    posicionNumeroFilaSiguiente = sudoku[indexFilaSiguiente].index(numero)
 
-            else:
-                # Este bloque de codigo se ejecuta si la sentencia sudoku[indexFilaSiguiente].index(numero)
-                # ha ido bien <=> el numero esta en la fila
-                if posicionNumeroFilaSiguiente == primeraFila.index(numero):
+                except ValueError:
+                    # Este bloque de codigo se ejecuta si sudoku[indexFilaSiguiente].index(numero)
+                    # devuelve un error <=> si el numero no esta en la fila siguiente
+                    # no llegaria a presentarse el caso pues checkNumerosEnRango se
+                    # ejecuta antes
                     return False
+
                 else:
-                    indexFilaActual += 1
+                    # Este bloque de codigo se ejecuta si la sentencia sudoku[indexFilaSiguiente].index(numero)
+                    # ha ido bien <=> el numero esta en la fila
+                    if posicionNumeroFilaSiguiente == fila.index(numero):
+                        return False
+                    else:
+                        # paso a buscar en la siguiente fila (dentro del while)
+                        indexFilaSiguiente += 1
+
+        # Cuando he chequeado los numeros de la fila actual 
+        # indico que paso a la fila siguiente.
+        # El contador for fila in sudoku se encarga de esto.
+        indexFilaActual += 1
 
     return True
+
 
 
 def check_sudoku(sudoku):
@@ -187,11 +205,14 @@ def check_sudoku(sudoku):
 
 # Casos test
 
-print(check_sudoku(incorrecto1))
-# >>> False
-
 print(check_sudoku(correcto))
 # >>> True
+
+print(check_sudoku(incorrecto))
+# >>> False
+
+print(check_sudoku(incorrecto1))
+# >>> False
 
 print(check_sudoku(incorrecto2))
 # >>> False
