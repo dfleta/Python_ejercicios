@@ -40,7 +40,7 @@ def accesoCasosTexttest(matrizCasosTest, rutaAccesoFichero):
         # o indica cuando comienzan o terminan los items
         # modificados ese dia
         if linea.find("day") != -1:
-            # comienza un nuevo conjunto de casos test a incluir en un diá
+            # comienza un nuevo conjunto de casos test a incluir en un dia
             casosTestDia = []
         elif linea == "\n":
             # fin de los items de un dia, fin del caso test del dia
@@ -54,14 +54,14 @@ def accesoCasosTexttest(matrizCasosTest, rutaAccesoFichero):
             # eliminamos end-of-line character \n
             item = linea.rstrip()
             # si la linea contiene sulfuras, hay una primera coma incluida
-            # en el nombre del item: dividismos comenzando por la derecha
+            # en el nombre del item: dividimos comenzando por la derecha
             # rsplit() y fijamos un máximo de 3 divisiones
             if linea.find("Sulfuras") != -1:
                 item = item.rsplit(',', maxsplit=2)
             else:
                 # to chop up the line on its comma delimiters;
                 # the result is a list of substrings containing the individual
-                # ojo que convierte todo a caracteres
+                # Ojo que convierte todo a caracteres (ya no son enteros)!!
                 item = item.split(',')
             # el item forma parte del caso test "día"
             casosTestDia.append(item)
