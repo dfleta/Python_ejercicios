@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Lista de reproducción</title>
+	<trackList>
+		<track>
+			<location>file:///home/david/Escritorio/Programacion/codigo/play_shuffle_VLC/biblioteca/California_Uber_Alles.mp3</location>
+			<title>California Über Alles</title>
+			<creator>Dead Kennedys</creator>
+			<album>Fresh Fruit for Rotting Vegetables [Bonus Disc] Disc 1</album>
+			<trackNum>8</trackNum>
+			<duration>180380</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/david/Escritorio/Programacion/codigo/play_shuffle_VLC/biblioteca/King_Kunta.mp3</location>
+			<title>King Kunta</title>
+			<creator>Kendrick Lamar</creator>
+			<album>To Pimp A Butterfly</album>
+			<trackNum>3</trackNum>
+			<image>file:///home/david/.cache/vlc/art/artistalbum/Kendrick%20Lamar/To%20Pimp%20A%20Butterfly/art.jpg</image>
+			<duration>234762</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/david/Escritorio/Programacion/codigo/play_shuffle_VLC/biblioteca/Seattle_Party.flac</location>
+			<title>Seattle Party</title>
+			<creator>Chastity Belt</creator>
+			<album>No Regerts</album>
+			<trackNum>2</trackNum>
+			<annotation>Visit http://chastity-belt.bandcamp.com</annotation>
+			<image>file:///home/david/.cache/vlc/art/artistalbum/Chastity%20Belt/No%20Regerts/art.jpg</image>
+			<duration>276469</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+			</extension>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+			<vlc:item tid="0"/>
+			<vlc:item tid="1"/>
+			<vlc:item tid="2"/>
+	</extension>
+</playlist>
