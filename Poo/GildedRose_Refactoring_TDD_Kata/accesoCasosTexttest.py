@@ -51,8 +51,10 @@ def accesoCasosTexttest(matrizCasosTest, rutaAccesoFichero):
             # la linea con el nombre de las propiedades no nos interesa
             pass
         else:
-            # eliminamos end-of-line character \n
-            item = linea.rstrip()
+            # Eliminamos end-of-line character \n
+            # Reemplazamos la coma y el espacio en sell_in y en quality
+            # por una unica coma, que servira de separador
+            item = linea.rstrip().replace(", ", ",")
             # si la linea contiene sulfuras, hay una primera coma incluida
             # en el nombre del item: dividimos comenzando por la derecha
             # rsplit() y fijamos un máximo de 3 divisiones
