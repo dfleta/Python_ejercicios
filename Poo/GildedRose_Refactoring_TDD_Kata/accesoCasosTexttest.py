@@ -36,7 +36,7 @@ def accesoCasosTexttest(matrizCasosTest, rutaAccesoFichero):
     matrizCasosTest = []
 
     for linea in fichero:
-        # cada linea del fichero es un item
+        # Cada linea del fichero es un item
         # o indica cuando comienzan o terminan los items
         # modificados ese dia
         if linea.find("day") != -1:
@@ -52,9 +52,8 @@ def accesoCasosTexttest(matrizCasosTest, rutaAccesoFichero):
             pass
         else:
             # Eliminamos end-of-line character \n
-            # Reemplazamos la coma y el espacio en sell_in y en quality
-            # por una unica coma, que servira de separador
-            item = linea.rstrip().replace(", ", ",")
+            item = linea.rstrip()
+
             # si la linea contiene sulfuras, hay una primera coma incluida
             # en el nombre del item: dividimos comenzando por la derecha
             # rsplit() y fijamos un máximo de 3 divisiones
@@ -65,6 +64,7 @@ def accesoCasosTexttest(matrizCasosTest, rutaAccesoFichero):
                 # the result is a list of substrings containing the individual
                 # Ojo que convierte todo a caracteres (ya no son enteros)!!
                 item = item.split(',')
+
             # el item forma parte del caso test "día"
             casosTestDia.append(item)
 
@@ -88,10 +88,13 @@ if __name__ == "__main__":
 
     # volcamos los casos test cargados en memoria
     # en matrizCasosTest a un fichero stdout.txt
-    # para inspeccionarlos comodamente:
+    # para inspeccionarlos comodamente.
 
     stdout = open("stdout.txt", 'w')
     for (offset, casosTestDia) in enumerate(matrizCasosTest):
         stdout.write('-' * 5 + " Dia %d: " % offset + '-' * 5 + '\n')
         for item in casosTestDia:
+            # join une los elementos de un iterable lista en
+            # un string utilizando el separador indicado.
+            # Los elementos de la lista han de ser string.
             stdout.write(','.join(item) + '\n')
