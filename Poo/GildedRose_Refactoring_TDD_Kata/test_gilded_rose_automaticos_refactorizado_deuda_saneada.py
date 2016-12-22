@@ -1,6 +1,6 @@
 
 from gilded_rose_refactorizado import *
-from accesoCasosTexttest import *
+from accesoCasosTexttest_deudatecnica_saneada import *
 
 
 def extraerItemsIventario(matrizCasosTest):
@@ -24,17 +24,6 @@ def crearObjetoItem(item):
     Argumentos:
     item = ['Elixir of the Mongoose', ' 5', ' 7']
     """
-    argumentos = []
-
-    for propiedad in item:
-        try:
-            argumentos.append(int(propiedad.lstrip()))
-            assert isinstance(argumentos[-1], int)
-        except AssertionError:
-            print("la propiedad %s ha de ser integer" % propiedad)
-        except ValueError:
-            argumentos.append(propiedad)
-
     diccionarioClases = {"Sulfuras, Hand of Ragnaros": "Sulfuras",
                          "Aged Brie": "AgedBrie",
                          "Backstage passes to a TAFKAL80ETC concert": "Backstage",
@@ -43,12 +32,12 @@ def crearObjetoItem(item):
                          "Normal Item": "NormalItem"}
 
     try:
-        nombreItem = argumentos[0]
+        nombreItem = item[0]
         clase = diccionarioClases[nombreItem]
     except KeyError:
         clase = diccionarioClases["Normal Item"]
     finally:
-        return eval(clase + str(tuple(argumentos)))
+        return eval(clase + str(tuple(item)))
 
 
 def test(tienda, estadoInventario):
@@ -60,12 +49,8 @@ def test(tienda, estadoInventario):
         print(item)
         for i in range(1, numeroPropiedadesItem):
             propiedad = nombrePropiedadesItem[i]
-            try:
-                valorPropiedadCasoTest = int(estadoInventario[offset][i])
-            except ValueError:
-                valorPropiedadCasoTest = estadoInventario[offset][i]
-            else:
-                assert getattr(item, propiedad) == valorPropiedadCasoTest, \
+            valorPropiedadCasoTest = estadoInventario[offset][i]
+            assert getattr(item, propiedad) == valorPropiedadCasoTest, \
                 "falla %s %s %s" % (propiedad, estadoInventario[offset][i], item.__class__.__name__)
 
 
