@@ -1,5 +1,15 @@
 ﻿# Yatzy Refactoring Kata
 
+-------------------------
+
+Kata about refactoring and TDD from the book [The Coding Dojo Handbook, a practical guide to creating a space where good programmers can become great programmers](https://leanpub.com/codingdojohandbook) by Emily Bache.
+
+This is the README.MD file published at https://github.com/emilybache/Yatzy-Refactoring-Kata.
+
+All credit to Emily Bache.
+
+--------------------------
+
 This Refactoring Kata was designed by Jon Jagger and is available in his Cyber-Dojo. See [his blog post](http://jonjagger.blogspot.co.uk/2012/05/yahtzee-cyber-dojo-refactoring-in-java.html)
 
 I have changed it a little, so that the rules more closely match the original game.
