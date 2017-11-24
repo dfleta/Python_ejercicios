@@ -11,25 +11,8 @@ def createRandomList(length):
 
 def display(lista):
     plt.clf()
-    try:
-        plt.bar(range(len(lista)), lista)
-    except TypeError:
-        lista = [ord(character) for character in lista]
-        plt.bar(range(len(lista)), ord(lista))
+    plt.bar(range(len(lista)), lista)
     plt.draw()
-
-
-def isSorted(lista):
-    for (offset, element) in enumerate(lista[:-1]):
-        if element > lista[offset + 1]:
-            return False
-    return True
-
-
-def isExchanged(lista, i, j):
-    if less(lista[i], lista[j]):
-        return True
-    return False
 
 
 def less(a, b):
@@ -39,6 +22,19 @@ def less(a, b):
 def exchange(lista, i, j):
     lista[i], lista[j] = lista[j], lista[i]
     assert isExchanged(lista, i, j)
+
+
+def isExchanged(lista, i, j):
+    if less(lista[i], lista[j]):
+        return True
+    return False
+
+
+def isSorted(lista):
+    for (offset, element) in enumerate(lista[:-1]):
+        if element > lista[offset + 1]:
+            return False
+    return True
 
 
 def shellSort(lista):
@@ -53,7 +49,6 @@ def shellSort(lista):
 
     assert gaps[0] <= N / 3
 
-    print(gaps)
     # escribir el bucle de dentro a fuera: code complete
     for gap in gaps:
         j = gap

@@ -24,17 +24,17 @@ def exchange(lista, i, j):
     assert isExchanged(lista, i, j)
 
 
+def isExchanged(lista, i, j):
+    if less(lista[i], lista[j]):
+        return True
+    return False
+
+
 def isSorted(lista):
     for (offset, element) in enumerate(lista[:-1]):
         if element > lista[offset + 1]:
             return False
     return True
-
-
-def isExchanged(lista, i, j):
-    if less(lista[i], lista[j]):
-        return True
-    return False
 
 
 def insertionSort(lista):
