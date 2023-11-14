@@ -73,10 +73,10 @@ def accesoCasosTexttest(matrizCasosTest, rutaAccesoFichero):
                 # Ojo que convierte todo a caracteres (ya no son enteros)!!
                 item = linea.rstrip().rsplit(',', maxsplit=numeroPropiedadesItem-1)                # El item forma parte del caso test "día"
                 casosTestDia.append(item)
+        return matrizCasosTest
+    finally:
         # cerramos el fichero
         fichero.close()
-        return matrizCasosTest
-
 
 def crearFicheroCasosTest(ficheroVolcadoCasosTest, matrizCasosTest):
     """
@@ -94,6 +94,7 @@ def crearFicheroCasosTest(ficheroVolcadoCasosTest, matrizCasosTest):
             stdout.write('-' * 5 + " Dia %d: " % offset + '-' * 5 + '\n')
             for item in casosTestDia:
                 stdout.write(','.join(item) + '\n')
+    finally:
         stdout.close()
 
 

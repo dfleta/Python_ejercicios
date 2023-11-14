@@ -48,9 +48,9 @@ def accesoCasosTexttest(matrizCasosTest, rutaAccesoFichero):
             else:
                 item = linea.rstrip().rsplit(',', maxsplit=numeroPropiedadesItem-1)
                 casosTestDia.append(item)
-        fichero.close()
         return matrizCasosTest
-
+    finally:
+        fichero.close()
 
 def crearFicheroCasosTest(ficheroVolcadoCasosTest, matrizCasosTest):
     """
