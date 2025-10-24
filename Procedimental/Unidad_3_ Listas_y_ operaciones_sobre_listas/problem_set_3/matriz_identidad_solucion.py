@@ -32,6 +32,9 @@ def esMatrizIdentidad(matrix):
     # The public methods assume the data is unsafe,
     # and they are responsible for checking the data (and sanitizing it).
 
+    UNO = 1
+    CERO = 0
+
     if not esMatrizCuadrada(matrix):
         return False
 
@@ -44,12 +47,12 @@ def esMatrizIdentidad(matrix):
 
         for elemento in fila:
 
-            if elemento == 1:
+            if elemento == UNO:
 
                 posicionUno = fila.index(elemento)
                 contadorUnos += 1
 
-            elif elemento != 0:
+            elif elemento != CERO:
 
                 contadorFalsos += 1
 
@@ -64,100 +67,80 @@ def esMatrizIdentidad(matrix):
     return True
 
 
-# Casos Test:
+if __name__ == '__main__':
+    # Casos Test:
 
-matrix1 = [[1, 0, 0, 0],
-           [0, 1, 0, 0],
-           [0, 0, 1, 0],
-           [0, 0, 0, 1]]
+    matrix1 = [[1, 0, 0, 0],
+               [0, 1, 0, 0],
+               [0, 0, 1, 0],
+               [0, 0, 0, 1]]
 
-print(esMatrizIdentidad(matrix1))
-# >>>True
+    assert esMatrizIdentidad(matrix1) is True
 
-matrix2 = [[1, 0, 0],
-           [0, 1, 0],
-           [0, 0, 0]]
+    matrix2 = [[1, 0, 0],
+               [0, 1, 0],
+               [0, 0, 0]]
 
-print(esMatrizIdentidad(matrix2))
-# >>>False
+    assert esMatrizIdentidad(matrix2) is False
 
-matrix8 = [[1, 0, 1],
-           [0, 1, 0],
-           [0, 0, 0]]
+    matrix8 = [[1, 0, 1],
+               [0, 1, 0],
+               [0, 0, 0]]
 
-print(esMatrizIdentidad(matrix8))
-# >>>False
+    assert esMatrizIdentidad(matrix8) is False
 
-matrix3 = [[2, 0, 0],
-           [0, 2, 0],
-           [0, 0, 2]]
+    matrix3 = [[2, 0, 0],
+               [0, 2, 0],
+               [0, 0, 2]]
 
-print(esMatrizIdentidad(matrix3))
-# >>>False
+    assert esMatrizIdentidad(matrix3) is False
 
-matrix6 = [[1, 0, 0, 0],
-           [0, 1, 0, 2],
-           [0, 0, 1, 0],
-           [0, 0, 0, 1]]
+    matrix6 = [[1, 0, 0, 0],
+               [0, 1, 0, 2],
+               [0, 0, 1, 0],
+               [0, 0, 0, 1]]
 
-print(esMatrizIdentidad(matrix6))
-# >>>False
+    assert esMatrizIdentidad(matrix6) is False
 
-matrix7 = [[1, -1, 1],
-           [0, 1, 0],
-           [0, 0, 1]]
+    matrix7 = [[1, -1, 1],
+               [0, 1, 0],
+               [0, 0, 1]]
 
-print(esMatrizIdentidad(matrix7))
-# >>>False
+    assert esMatrizIdentidad(matrix7) is False
 
 
-# casos test que no satisfacen la precondicion de que la matriz sea cuadrada:
+    # casos test que no satisfacen la precondicion de que la matriz sea cuadrada:
 
-matrix4 = [[1, 0, 0, 0],
-           [0, 1, 1, 0],
-           [0, 0, 0, 1]]
+    matrix4 = [[1, 0, 0, 0],
+               [0, 1, 1, 0],
+               [0, 0, 0, 1]]
 
-print(esMatrizIdentidad(matrix4))
-# >>>False
+    assert esMatrizIdentidad(matrix4) is False
 
-matrix5 = [[1, 0, 0, 0, 0, 0, 0, 0, 0]]
+    matrix5 = [[1, 0, 0, 0, 0, 0, 0, 0, 0]]
 
-print(esMatrizIdentidad(matrix5))
-# >>>False
+    assert esMatrizIdentidad(matrix5) is False
 
-matrix9 = [[1, 0, 0, 0],
-           [0, 1, 0],
-           [0, 0, 0, 1]]
+    matrix9 = [[1, 0, 0, 0],
+               [0, 1, 0],
+               [0, 0, 0, 1]]
 
-print(esMatrizIdentidad(matrix9))
+    assert esMatrizIdentidad(matrix9) is False
 
 
-# casos test matriz cuadrada:
+    # casos test matriz cuadrada:
+    assert esMatrizCuadrada([[1, 0, 0, 0],
+                             [0, 1, 1, 0],
+                             [0, 0, 0, 1]]) is False
 
-print("casos test matriz cuadrada:")
+    assert esMatrizCuadrada([[1, 0, 0, 0, 0, 0, 0, 0, 0]]) is False
 
-matriz5 = [[1, 0, 0, 0],
-           [0, 1, 1, 0],
-           [0, 0, 0, 1]]
+    assert esMatrizCuadrada([[1, 0, 0, 0],
+                             [0, 1, 0],
+                             [0, 0, 0, 1]]) is False
 
-print(esMatrizCuadrada(matriz5))
-# >>>False
+    assert esMatrizCuadrada([[0, 0, 0],
+                             [0, 0, 0],
+                             [0, 0, 0]]) is True
 
-matriz6 = [[1, 0, 0, 0, 0, 0, 0, 0, 0]]
-
-print(esMatrizCuadrada(matriz6))
-# >>>False
-
-matriz7 = [[1, 0, 0, 0],
-           [0, 1, 0],
-           [0, 0, 0, 1]]
-
-print(esMatrizCuadrada(matriz7))
-# >>>False
-
-matriz8 = [[0, 0, 0],
-           [0, 0, 0],
-           [0, 0, 0]]
-
-print(esMatrizCuadrada(matriz8))
-# >>> True
+    print("All tests passed")
