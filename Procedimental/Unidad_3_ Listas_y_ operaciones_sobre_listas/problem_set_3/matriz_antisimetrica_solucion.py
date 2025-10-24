@@ -27,10 +27,12 @@ def esAntisimetrica(matriz):
     #    return False
 
     i = 0
-    j = 0
+
 
     while i <= len(matriz) - 1:
-
+    
+        j = 0
+        
         while j <= len(matriz[i]) - 1:
 
             if matriz[i][j] != - matriz[j][i]:
